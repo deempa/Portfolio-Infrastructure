@@ -14,6 +14,11 @@ resource "helm_release" "argocd" {
     value = base64decode(jsondecode(data.aws_secretsmanager_secret_version.secret-version.secret_string)["ARGO_PRIVATE_KEY"])
   }
 
+  set {
+    name = "configs.params.secret.argocdServerAdminPassword"
+    value = bcrypt(jsondecode("$2a$10$0ByDN.R8YdVRDyaSYCkqFO..nGaBzVTuMrymD4.y796CqQRmKPXsi"))
+  }
+
   values = [
     "${file("./values/argocd-values.yaml")}"
   ]

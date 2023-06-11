@@ -141,14 +141,12 @@ resource "kubectl_manifest" "kibanadashboard" {
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: ordersdashboard
+  name: kibanadashboard
   namespace: default
 data:
-  my-dashboard.json: |
+  my-dashboard-kibana.ndjson: |
     ${indent(4, file("${path.module}/dashboards/kibana_dashboard.ndjson"))}
 YAML
-
-    depends_on = [ helm_release.argocd ]
 }
 
 resource "kubectl_manifest" "grafanadashboard" {
@@ -156,13 +154,12 @@ resource "kubectl_manifest" "grafanadashboard" {
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: ordersdashboard
+  name: grafanadashboard
   namespace: default
   labels:
     grafana_dashboard: "1"
 data:
-  my-dashboard.json: |
+  my-dashboard-grafana.json: |
     ${indent(4, file("${path.module}/dashboards/grafana_dashboard.json"))}
 YAML
-    depends_on = [ helm_release.argocd ]
 }

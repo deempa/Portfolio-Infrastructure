@@ -48,7 +48,7 @@ provider "helm" {
 }
 
 provider "kubernetes" {
-  config_path            = "~/.kube/config"
+    config_path            = "~/.kube/config"
     host = module.compute.cluster_endpoint
     token = module.compute.cluster_token
     cluster_ca_certificate = module.compute.cluster_ca_certificate
@@ -58,5 +58,6 @@ provider "kubectl" {
     host = module.compute.cluster_endpoint
     token = module.compute.cluster_token
     cluster_ca_certificate = module.compute.cluster_ca_certificate
+    config_path            = "~/.kube/config"
     # load_config_file       = false
 }
