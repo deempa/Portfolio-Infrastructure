@@ -16,7 +16,7 @@ resource "helm_release" "argocd" {
 
   set {
     name = "configs.params.secret.argocdServerAdminPassword"
-    value = bcrypt(jsondecode("$2a$10$0ByDN.R8YdVRDyaSYCkqFO..nGaBzVTuMrymD4.y796CqQRmKPXsi"))
+    value = bcrypt(jsondecode("12345678"))
   }
 
   values = [
