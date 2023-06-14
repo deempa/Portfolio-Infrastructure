@@ -1,6 +1,6 @@
 
 resource "aws_subnet" "lior-public-subnet-k8s-a" {
-  vpc_id                  = aws_vpc.lior-vpc-k8s.id
+  vpc_id                  = aws_vpc.this.id
   cidr_block              = var.subnets_cidr_block[0]
   availability_zone       = var.subnets_availability_zone[0]
   map_public_ip_on_launch = var.map_public_ip_on_launch
@@ -14,7 +14,7 @@ resource "aws_subnet" "lior-public-subnet-k8s-a" {
 
 
 resource "aws_subnet" "lior-public-subnet-k8s-b" {
-  vpc_id                  = aws_vpc.lior-vpc-k8s.id
+  vpc_id                  = aws_vpc.this.id
   cidr_block              = var.subnets_cidr_block[1]
   availability_zone       = var.subnets_availability_zone[1]
   map_public_ip_on_launch = var.map_public_ip_on_launch

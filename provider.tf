@@ -55,7 +55,7 @@ provider "kubernetes" {
 }
 
 provider "kubectl" {
-    config_path            = "~/.kube/config"
+    # config_path            = "~/.kube/config"
     host = module.eks.cluster_endpoint
     token = module.eks.cluster_token
     cluster_ca_certificate = module.eks.cluster_ca_certificate

@@ -1,6 +1,6 @@
-resource "aws_eks_node_group" "private_nodes" {
-  cluster_name    = aws_eks_cluster.lior-k8s.name
-  node_group_name = "private-nodes"
+resource "aws_eks_node_group" "this" {
+  cluster_name    = aws_eks_cluster.this.name
+  node_group_name = "Lior-Node-Group"
   node_role_arn   = aws_iam_role.nodes.arn
 
   subnet_ids = [
