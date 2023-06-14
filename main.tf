@@ -12,8 +12,8 @@ module "network" {
   map_public_ip_on_launch = var.map_public_ip_on_launch
 }
 
-module "compute" {
-  source = "./modules/compute"
+module "eks" {
+  source = "./modules/eks"
   depends_on = [module.network]
 
   prefix = var.prefix
@@ -32,4 +32,10 @@ module "compute" {
   public-subnet-1-id      = module.network.public-subnet-1-id
   public-subnet-2-id      = module.network.public-subnet-2-id
   vpc-id                  = module.network.vpc-id
+}
+
+module "helm" {
+  source = "./modules/helm"
+  
+  depends_on = [ module.eks ]
 }

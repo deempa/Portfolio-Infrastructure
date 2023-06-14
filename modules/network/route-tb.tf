@@ -1,10 +1,10 @@
 
 resource "aws_route_table" "lior-public-tb" {
-  vpc_id = aws_vpc.lior-vpc-k8s.id
+  vpc_id = aws_vpc.this.id
 
   route {
     cidr_block = "0.0.0.0/0"
-    gateway_id = aws_internet_gateway.lior-igw-k8s.id
+    gateway_id = aws_internet_gateway.this.id
 
   }
 

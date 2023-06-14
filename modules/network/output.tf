@@ -9,7 +9,7 @@ output "public-subnet-2-id" {
 }
 
 output "vpc-id" {
-  value       = aws_vpc.lior-vpc-k8s.id
+  value       = aws_vpc.this.id
   description = "description"
 }
 
