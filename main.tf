@@ -10,6 +10,8 @@ module "network" {
   subnets_cidr_block = var.subnets_cidr_block
   subnets_availability_zone = var.subnets_availability_zone
   map_public_ip_on_launch = var.map_public_ip_on_launch
+  subnet_count = var.subnet_count
+  base_subnet_cidr = var.base_subnet_cidr
 }
 
 module "eks" {
@@ -28,9 +30,10 @@ module "eks" {
   disk_size = var.disk_size
   force_update_version = var.force_update_version
   max_unavailable = var.max_unavailable
+  public-subnets = module.network.public_subnets
 
-  public-subnet-1-id      = module.network.public-subnet-1-id
-  public-subnet-2-id      = module.network.public-subnet-2-id
+  # public-subnet-1-id      = module.network.public-subnet-1-id
+  # public-subnet-2-id      = module.network.public-subnet-2-id
   vpc-id                  = module.network.vpc-id
 }
 

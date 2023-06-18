@@ -5,10 +5,11 @@ resource "aws_eks_cluster" "this" {
 
   vpc_config {
     endpoint_public_access = true
-    subnet_ids = [
-      var.public-subnet-1-id,
-      var.public-subnet-2-id
-    ]
+    subnet_ids = var.public-subnets
+    # subnet_ids = [
+    #   var.public-subnet-1-id,
+    #   var.public-subnet-2-id
+    # ]
   }
   tags = {
     Name = "${var.prefix}-Cluster"

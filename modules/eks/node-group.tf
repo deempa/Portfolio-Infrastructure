@@ -3,10 +3,12 @@ resource "aws_eks_node_group" "this" {
   node_group_name = "Lior-Node-Group"
   node_role_arn   = aws_iam_role.nodes.arn
 
-  subnet_ids = [
-    var.public-subnet-1-id,
-    var.public-subnet-2-id
-  ]
+  # subnet_ids = [
+  #   var.public-subnet-1-id,
+  #   var.public-subnet-2-id
+  # ]
+
+  subnet_ids = var.public-subnets
 
   capacity_type  = var.capacity_type
   instance_types = var.instance_types
