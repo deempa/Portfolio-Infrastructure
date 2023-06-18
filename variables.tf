@@ -65,3 +65,11 @@ variable "force_update_version" {
 variable "max_unavailable" {
   type = number
 }
+
+variable "subnet_count" {
+  type = number
+}
+
+variable "base_subnet_cidr" {
+  type = string
+}

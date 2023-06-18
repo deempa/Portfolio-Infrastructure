@@ -33,3 +33,11 @@ variable "subnets_availability_zone" {
 variable "map_public_ip_on_launch" {
   type = bool
 }
+
+variable "subnet_count" {
+  type = number
+}
+
+variable "base_subnet_cidr" {
+  type = string
+}
