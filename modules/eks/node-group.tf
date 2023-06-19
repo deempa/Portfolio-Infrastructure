@@ -2,14 +2,7 @@ resource "aws_eks_node_group" "this" {
   cluster_name    = aws_eks_cluster.this.name
   node_group_name = "Lior-Node-Group"
   node_role_arn   = aws_iam_role.nodes.arn
-
-  # subnet_ids = [
-  #   var.public-subnet-1-id,
-  #   var.public-subnet-2-id
-  # ]
-
   subnet_ids = var.public-subnets
-
   capacity_type  = var.capacity_type
   instance_types = var.instance_types
 
@@ -77,7 +70,6 @@ resource "aws_iam_role_policy_attachment" "nodes_amazon_ec2_container_registry_r
   role       = aws_iam_role.nodes.name
 }
 
-# Optional: only if you want to "SSH" to your EKS nodes.
 resource "aws_iam_role_policy_attachment" "amazon_ssm_managed_instance_core" {
   policy_arn = "arn:aws:iam::aws:policy/AmazonSSMManagedInstanceCore"
   role       = aws_iam_role.nodes.name

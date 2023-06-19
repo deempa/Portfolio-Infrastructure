@@ -23,8 +23,4 @@ resource "helm_release" "argocd" {
     name  = "configs.credentialTemplates.ssh-creds.sshPrivateKey"
     value = base64decode(jsondecode(data.aws_secretsmanager_secret_version.secret-version.secret_string)["ARGO_PRIVATE_KEY"])
   }
-
-  # values = [
-  #   "${file("./values/argocd-values.yaml")}"
-  # ]
 }

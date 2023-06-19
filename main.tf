@@ -31,9 +31,6 @@ module "eks" {
   force_update_version = var.force_update_version
   max_unavailable = var.max_unavailable
   public-subnets = module.network.public_subnets
-
-  # public-subnet-1-id      = module.network.public-subnet-1-id
-  # public-subnet-2-id      = module.network.public-subnet-2-id
   vpc-id                  = module.network.vpc-id
 }
 

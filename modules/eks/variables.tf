@@ -34,18 +34,10 @@ variable "max_unavailable" {
   type = number
 }
 
-# variable "public-subnet-1-id" {
-#   description = "description"
-# }
-
-# variable "public-subnet-2-id" {
-#   description = "description"
-# }
-
 variable "public-subnets" {
-  description = "description"
+  description = "public subnets"
 }
 
 variable "vpc-id" {
-  description = "description"
+  description = "vpc id"
 }
