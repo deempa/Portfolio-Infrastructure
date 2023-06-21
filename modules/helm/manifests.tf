@@ -1,5 +1,5 @@
 resource "kubectl_manifest" "appsofapp" {
-    yaml_body = <<YAML
+  yaml_body  = <<YAML
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
@@ -20,5 +20,5 @@ spec:
       selfHeal: true
   project: default
 YAML
-    depends_on = [ helm_release.argocd ]
+  depends_on = [helm_release.argocd]
 }

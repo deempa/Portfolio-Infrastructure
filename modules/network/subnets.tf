@@ -8,8 +8,8 @@ resource "aws_subnet" "public" {
   map_public_ip_on_launch = var.map_public_ip_on_launch
 
   tags = {
-    Name                             = "${var.prefix}-public-subnet-k8s-${count.index}"
+    Name                                           = "${var.prefix}-public-subnet-k8s-${count.index}"
     "kubernetes.io/cluster/Lior-Portfolio-Cluster" = "shared"
-    "kubernetes.io/role/elb"         = "1"
+    "kubernetes.io/role/elb"                       = "1"
   }
 }

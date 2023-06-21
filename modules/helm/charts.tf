@@ -1,16 +1,16 @@
 resource "helm_release" "argocd" {
-  name = "argocd"
+  name       = "argocd"
   repository = "https://argoproj.github.io/argo-helm"
   chart      = "argo-cd"
   version    = "5.34.6"
 
   set {
-    name = "configs.params.server.insecure"
-    value = true 
+    name  = "configs.params.server.insecure"
+    value = true
   }
 
   set {
-    name = "repositories.private-repo.url"
+    name  = "repositories.private-repo.url"
     value = "git@github.com:deempa/GitOps-Config-Portfolio.git"
   }
 

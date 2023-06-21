@@ -17,7 +17,7 @@ terraform {
       version = ">= 1.7.0"
     }
   }
-  
+
   backend "s3" {
     bucket = "lior-terraform"
     key    = "terraform.tfstate"
@@ -41,22 +41,22 @@ provider "aws" {
 provider "helm" {
   kubernetes {
     config_path            = "~/.kube/config"
-    host = module.eks.cluster_endpoint
-    token = module.eks.cluster_token
+    host                   = module.eks.cluster_endpoint
+    token                  = module.eks.cluster_token
     cluster_ca_certificate = module.eks.cluster_ca_certificate
   }
 }
 
 provider "kubernetes" {
-    config_path            = "~/.kube/config"
-    host = module.eks.cluster_endpoint
-    token = module.eks.cluster_token
-    cluster_ca_certificate = module.eks.cluster_ca_certificate
+  config_path            = "~/.kube/config"
+  host                   = module.eks.cluster_endpoint
+  token                  = module.eks.cluster_token
+  cluster_ca_certificate = module.eks.cluster_ca_certificate
 }
 
 provider "kubectl" {
-    # config_path            = "~/.kube/config"
-    host = module.eks.cluster_endpoint
-    token = module.eks.cluster_token
-    cluster_ca_certificate = module.eks.cluster_ca_certificate
+  # config_path            = "~/.kube/config"
+  host                   = module.eks.cluster_endpoint
+  token                  = module.eks.cluster_token
+  cluster_ca_certificate = module.eks.cluster_ca_certificate
 }
